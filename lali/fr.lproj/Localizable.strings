@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  lali
+
+  Created by Balogh Tamas on 2019. 03. 03..
+  Copyright © 2019. Balogh Tamas. All rights reserved.
+*/
+
+//MainController
+"language"="Langue";
+"mixedGame"="Questions au hasard";
+"regularGame"="Questions par thème";
+
+//LanguageController
+"english"="Anglais";
+"french"="Français";
+"german"="Allemand";
+"finnish"="Finnois";
+"selectyourlanguage"="LANGUE";
+"back"="En arrière";
+"choose"="Choisir";
+
+//RegularController
+"start"="Commencer";
+
+//Gametypes
+"gametype1"="Assemblez les mots de la liste de gauche et les définitions à droite. Vous pouvez recommencer la partie en appuyant sur le bouton en haut à droite. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite.";
+"gametype2"="Choisissez les mots correspondant aux numéros sur l'image. Vous pouvez recommencer la partie en appuyant sur le bouton en haut à droite. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite. ";
+"gametype3"="Choisissez le bon mot pour la phrase. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite. ";
+"gametype4"="A partir des mots proposés, composez une phrase grammaticalement correcte. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite. ";
+"gametype5"="Choisissez la phrase qui correspond à l'image. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite. ";
+"gametype6"="Choisissez l'antonyme du mot proposé. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite. ";
+"gametype7"="Regardez l'image et choisissez le mot approprié pour compléter la phrase. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite. ";
+"gametype8"="Regardez l'image et choisissez si la phrase est vraie ou fausse. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite. ";
+"gametype9"="Regardez l'image et choisissez quel mot n'est PAS dans l'image. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite. ";
+"gametype10"="Assemblez les titres avec les images. Pour changer le titre, cliquez dessus. Pour changer l'image, cliquez dessus. Pour changer la description, cliquez dessus.  Vous pouvez recommencer la partie en appuyant sur le bouton en haut à droite. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite.";
+"gametype11"="Lisez les phrases et choisissez l'image appropriée. Pour changer l'image, cliquez dessus. En appuyant sur le bouton \"AIDE\" vous pouvez obtenir de nouvelles phrases.  Vous pouvez recommencer la partie en appuyant sur le bouton en haut à droite. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite.";

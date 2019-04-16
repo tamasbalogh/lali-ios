@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  lali
+
+  Created by Balogh Tamas on 2019. 03. 03..
+  Copyright © 2019. Balogh Tamas. All rights reserved.
+*/
+
+//MainController
+"language"="Kieli";
+"mixedGame"="Satunnaiset kysymykset";
+"regularGame"="Peruspeli";
+
+//LanguageController
+"english"="Englanti";
+"french"="Ranska";
+"german"="Saksa";
+"finnish"="Suomi";
+"selectyourlanguage"="VALITSE KIELI";
+"back"="Takaisin";
+"choose"="Valitse";
+
+
+//RegularController
+"start"="Aloita";
+
+//Gametypes
+"gametype1"="Yhdistä vasemmanpuoleiset sanat oikeanpuoleisiin määritelmiin. Voit aloittaa pelin uudelleen painamalla oikean ylänurkan näppäintä. Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";
+"gametype2"="Valitse oikeat sanat kuvan numeroiden perusteella. Voit aloittaa pelin uudelleen painamalla oikean ylänurkan näppäintä. Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";
+"gametype3"="Valitse lauseeseen sopiva sana. Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";
+"gametype4"="Laita sanat oikeaan järjetykseen ja muodosta lause. Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";
+"gametype5"="Yhdistä oikea lause kuvaan. Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";
+"gametype6"="Valitse annetun sanan vastakohta. Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";
+"gametype7"="Valitse kuvaan sopiva(t) sana(t). Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";
+"gametype8"="Katso kuvaa ja valitse, onko lause oikein vai väärin. Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";
+"gametype9"="Valitse mikä asia/esine EI näy kuvassa. Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";
+"gametype10"="Yhdistä nimet kuviin. Voit vaihtaa nimeä klikkaamalla sitä. Voit vaihtaa kuvaa klikkaamalla sitä. Voit vaihtaa kuvausta klikkaamalla sitä. Voit aloittaa pelin uudelleen painamalla oikean ylänurkan näppäintä. Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";
+"gametype11"="Valitse oikea kuva lauseiden perusteella. Voit vaihtaa kuvaa klikkaamalla sitä. OHJEET-näppäimellä saat lisää lauseita. Voit aloittaa pelin uudelleen painamalla oikean ylänurkan näppäintä. Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";

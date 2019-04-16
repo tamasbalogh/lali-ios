@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  lali
+
+  Created by Balogh Tamas on 2019. 03. 03..
+  Copyright © 2019. Balogh Tamas. All rights reserved.
+*/
+
+//MainController
+"language"="Language";
+"mixedGame"="Mixed Game";
+"regularGame"="Regular Game";
+
+//LanguageController
+"english"="English";
+"french"="French";
+"german"="German";
+"finnish"="Finnish";
+"selectyourlanguage"="SELECT YOUR LANGUAGE";
+"back"="Back";
+"choose"="Choose";
+
+//RegularController
+"start"="Start";
+
+//ResultController
+"home"="Home";
+"newgame"="New Game";
+"correctanswers"="Correct Answers";
+"wronganswers"="Wrong Answers";
+
+//Gametypes
+"gametype1"="Pair the left-side words with the right-side definitions! You can reset this game with the button at right upper corner. After you finished, the next game can be started with the arrow at right upper corner.";
+"gametype2"="Choose the right words based on the numbers on the picture! You can reset this game with the button at right upper corner. After you finished, the next game can be started with the arrow at right upper corner.";
+"gametype3"="Choose the right word for the sentence! After you finished, the next game can be started with the arrow at right upper corner.";
+"gametype4"="With the given words, create a sentence with the right syntactical order! After you finished, the next game can be started with the arrow at right upper corner.";
+"gametype5"="Based on the picture, choose the right sentence! After you finished, the next game can be started with the arrow at right upper corner.";
+"gametype6"="Choose the opposite word of the given word. After you finished, the next game can be started with the arrow at right upper corner.";
+"gametype7"="Based on the picture, choose the right word which fits into the sentence. After you finished, the next game can be started with the arrow at right upper corner.";
+"gametype8"="Based on the picture, you need to choose that the sentence is true or false. After you finished, the next game can be started with the arrow at right upper corner.";
+"gametype9"="You need to choose which word is NOT in the picture. After you finished, the next game can be started with the arrow at right upper corner.";
+"gametype10"="Pair the titles with the pictures! To change the title, click on the title! To change the picture, click on the picture! To change the description, click on the description! You can reset this game with the button at right upper corner. After you finished, the next game can be started with the arrow at right upper corner.";
+"gametype11"="Based on the sentences, you need to choose the right picture. To change the picture, click on the picture! With the HELP button, you can get more sentences. You can reset this game with the button at right upper corner. After you finished, the next game can be started with the arrow at right upper corner.";

@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  lali
+
+  Created by Balogh Tamas on 2019. 03. 03..
+  Copyright © 2019. Balogh Tamas. All rights reserved.
+*/
+
+//MainController
+"language"="Sprache";
+"mixedGame"="Spiel mit zufälligen Fragen";
+"regularGame"="Fragespiel";
+
+//LanguageController
+"english"="Englisch";
+"french"="Französisch";
+"german"="Deutsch";
+"finnish"="Finnisch";
+"selectyourlanguage"="SPRACHE";
+"back"="Zurück";
+"choose"="Wählen Sie";
+
+//RegularController
+"start"="Start";
+
+//Gametypes
+"gametype1"="Verbinden sie die Wörter der linken Seite mit den Beschreibungen der rechten Seite! Sie können das Spiel mit der Taste in der rechten oberen Ecke neu starten. Wenn sie fertig sind, können sie mit der Pfeiltaste in der rechten oberen Ecke das nächste Spiel beginnen.";
+"gametype2"="Wählen sie das Wort aus, das zu den Nummern auf dem Bild passt! Sie können das Spiel mit der Taste in der rechten oberen Ecke neu starten. Wenn sie fertig sind, können sie mit der Pfeiltaste in der rechten oberen Ecke das nächste Spiel beginnen.";
+"gametype3"="Wählen sie das richtige Wort für den Satz aus! Wenn sie fertig sind, können sie mit der Pfeiltaste in der rechten oberen Ecke das nächste Spiel beginnen.";
+"gametype4"="Bilden sie aus diesen Worten einen Satz in der richtigen Satzordnung! Wenn sie fertig sind, können sie mit der Pfeiltaste in der rechten oberen Ecke das nächste Spiel beginnen.";
+"gametype5"="Wählen sie den Satz aus, der zu dem Bild passt. Wenn sie fertig sind, können sie mit der Pfeiltaste in der rechten oberen Ecke das nächste Spiel beginnen.";
+"gametype6"="Finden sie das gegenteilige Wort! Wenn sie fertig sind, können sie mit der Pfeiltaste in der rechten oberen Ecke das nächste Spiel beginnen.";
+"gametype7"="Finden sie anhand des Bildes heraus, welches Wort in den Satz passt! Wenn sie fertig sind, können sie mit der Pfeiltaste in der rechten oberen Ecke das nächste Spiel beginnen.";
+"gametype8"="Bestimmen sie mithilfe des Bildes, ob der Satz richtig oder falsch ist! Wenn sie fertig sind, können sie mit der Pfeiltaste in der rechten oberen Ecke das nächste Spiel beginnen.";
+"gametype9"="Wählen sie, welches Wort NICHT im Bild vorhanden ist! Wenn sie fertig sind, können sie mit der Pfeiltaste in der rechten oberen Ecke das nächste Spiel beginnen.";
+"gametype10"="Verbinden sie die richtige Überschrift mit den Bildern! Um die Überschrift zu ändern, klicken sie auf die Überschrift! Um das Bild zu ändern, klicken sie auf das Bild! Um die Beschreibung zu ändern, klicken sie sie auf die Beschreibung! Sie können das Spiel mit der Taste in der rechten oberen Ecke neu starten. Wenn sie fertig sind, können sie mit der Pfeiltaste in der rechten oberen Ecke das nächste Spiel beginnen.";
+"gametype11"="Wählen sie anhand der Sätze das richtige Bild aus! Um das Bild zu ändern, klicken sie auf das Bild! Mit der HILFE-Taste werden weitere Sätze angezeigt. Sie können das Spiel mit der Taste in der rechten oberen Ecke neu starten. Wenn sie fertig sind, können sie mit der Pfeiltaste in der rechten oberen Ecke das nächste Spiel beginnen.";
