@@ -45,7 +45,7 @@ class Utils{
             for i in 1..<games.count {
                 let game = games[i]
                 let gametype = game["gametype"]
-                if(gametype == 1 || gametype == 2 || gametype == 3 || gametype == 4 || gametype == 5 || gametype == 6 || gametype == 7 || gametype == 8 || gametype == 9){
+                if(gametype == 1 || gametype == 2 || gametype == 3 || gametype == 4 || gametype == 5 || gametype == 6 || gametype == 7 || gametype == 8 || gametype == 9 || gametype == 10){
                     tmp.append(games[i])
                     print("\(i) index added - \(gametype)")
                 }
@@ -111,14 +111,14 @@ class Utils{
                 gametype9.image = object["image"].string!
                 gametype9.answers = object["answers"].arrayValue.map{ $0.stringValue }
                 viewController.navigationController?.pushViewController(gametype9, animated: true)
-            /*case 10:
+            case 10:
                 let gametype10 = storyBoard.instantiateViewController(withIdentifier: "gametype10") as! GameType10Controller
                 gametype10.globalGames = tmp
-                gametype10.images = object["images"].arrayValue.map{ $0.stringValue }
-                gametype10.titles = object["titles"].arrayValue.map{ $0.stringValue }
-                gametype10.descriptions = object["descriptions"].arrayValue.map{ $0.stringValue }
+                gametype10.imagesDefault = object["images"].arrayValue.map{ $0.stringValue }
+                gametype10.titlesDefault = object["titles"].arrayValue.map{ $0.stringValue }
+                gametype10.descriptionsDefault = object["descriptions"].arrayValue.map{ $0.stringValue }
                 viewController.navigationController?.pushViewController(gametype10, animated: true)
-            case 11:
+            /*case 11:
                 let gametype11 = storyBoard.instantiateViewController(withIdentifier: "gametype11") as! GameType11Controller
                 gametype11.globalGames = tmp
                 gametype11.images = object["images"].arrayValue.map{ $0.stringValue }
