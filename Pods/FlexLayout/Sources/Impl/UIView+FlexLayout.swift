@@ -17,7 +17,7 @@ import UIKit
 private var flexLayoutAssociatedObjectHandle = 72_399_923
 
 public extension UIView {
-    public var flex: Flex {
+    var flex: Flex {
         if let flex = objc_getAssociatedObject(self, &flexLayoutAssociatedObjectHandle) as? Flex {
             return flex
         } else {

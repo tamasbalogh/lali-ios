@@ -153,10 +153,10 @@ class GameType2Controller: UIViewController, UITableViewDelegate, UITableViewDat
         
         for i in 0..<numbers.count{
             let key = numbers[i]
-            let numberCell = numberTableView.cellForRow(at: IndexPath(row: i, section: 0)) as! UITableViewCell
-            let answerCell = answerTableView.cellForRow(at: IndexPath(row: i, section: 0)) as! UITableViewCell
-            numberCell.backgroundColor = coloredAnswers[key]
-            answerCell.backgroundColor = coloredAnswers[key]
+            let numberCell = numberTableView.cellForRow(at: IndexPath(row: i, section: 0))
+            let answerCell = answerTableView.cellForRow(at: IndexPath(row: i, section: 0))
+            numberCell!.backgroundColor = coloredAnswers[key]
+            answerCell!.backgroundColor = coloredAnswers[key]
         }
         
         

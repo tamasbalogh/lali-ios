@@ -152,8 +152,8 @@ class GameType1Controller: UIViewController, UITableViewDelegate, UITableViewDat
         
         for i in 0..<colors.count{
             let key = colors[i]
-            let colorCell = colorTableView.cellForRow(at: IndexPath(row: i, section: 0)) as! UITableViewCell
-            let definitionCell = definitionTableView.cellForRow(at: IndexPath(row: i, section: 0)) as! UITableViewCell
+            let colorCell:UITableViewCell = colorTableView!.cellForRow(at: IndexPath(row: i, section: 0))!
+            let definitionCell:UITableViewCell = definitionTableView.cellForRow(at: IndexPath(row: i, section: 0))!
             colorCell.backgroundColor = coloredAnswers[key]
             definitionCell.backgroundColor = coloredAnswers[key]
         }
