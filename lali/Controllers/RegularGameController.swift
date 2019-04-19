@@ -27,6 +27,9 @@ class RegularGameController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var phenomenaRow = 1
     var levelRow = 1
     
+    var selectedPhenomena = Utils.PHENOMENA
+    var selectedLevel = Utils.LEVEL
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
@@ -63,13 +66,17 @@ class RegularGameController: UIViewController, UIPickerViewDelegate, UIPickerVie
             levels=["Basic","Advance"]
         }
         
-        phenomena = phenomenas[0]
-        level = levels[0]
-        
         phenomenaPickerView.delegate = self
         phenomenaPickerView.dataSource = self
         levelPickerView.delegate = self
         levelPickerView.dataSource = self
+        
+        
+        phenomenaPickerView.selectRow(selectedPhenomena, inComponent: 0, animated: false)
+        levelPickerView.selectRow(selectedLevel, inComponent: 0, animated: false)
+        
+        phenomena = phenomenas[selectedPhenomena]
+        level = levels[selectedLevel]
     }
     
     
@@ -96,10 +103,12 @@ class RegularGameController: UIViewController, UIPickerViewDelegate, UIPickerVie
         if(pickerView.isEqual(phenomenaPickerView)){
             phenomena = phenomenas[row]
             phenomenaRow = row + 1
+            Utils.PHENOMENA = row
         }
         if(pickerView.isEqual(levelPickerView)){
             level = levels[row]
             levelRow = row + 1
+            Utils.LEVEL = row
         }
     }
     
@@ -110,11 +119,13 @@ class RegularGameController: UIViewController, UIPickerViewDelegate, UIPickerVie
             "lesson": phenomenaRow,
             "level": levelRow
         ]
+        
         Alamofire.request("http://imhotep.nyme.hu:9443/ArtApp/regular", method: .post, parameters: params).responseJSON { response in
             response.result.ifSuccess {
                 print("Downloading games was SUCCESSFUL!")
                 let games = JSON(response.result.value!)
                 let list: Array<JSON> = games["games"].arrayValue
+                Utils.GAMETYPE = Utils.REGULAR
                 Utils.showGame(games: list, viewController:  self)
             }
             

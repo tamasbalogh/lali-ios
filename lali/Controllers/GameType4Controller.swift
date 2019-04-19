@@ -8,8 +8,8 @@
 
 import UIKit
 import SwiftyJSON
-import FlexLayout
 import PinLayout
+import FlexLayout
 
 class GameType4Controller: UIViewController {
     

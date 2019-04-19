@@ -20,9 +20,16 @@
 "back"="Takaisin";
 "choose"="Valitse";
 
-
 //RegularController
 "start"="Aloita";
+
+//Gametype10
+"correct"="Oikein";
+"checkresult"="Check Result";
+
+//Gametype11
+"choosepicture"="Valitse kuva";
+"help"="Ohjeet";
 
 //Gametypes
 "gametype1"="Yhdistä vasemmanpuoleiset sanat oikeanpuoleisiin määritelmiin. Voit aloittaa pelin uudelleen painamalla oikean ylänurkan näppäintä. Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";

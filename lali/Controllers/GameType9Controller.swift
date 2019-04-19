@@ -1,8 +1,8 @@
 //
-//  GameType8Controller.swift
+//  GameType9Controller.swift
 //  lali
 //
-//  Created by Balogh Tamas on 2019. 03. 27..
+//  Created by Balogh Tamas on 2019. 04. 19..
 //  Copyright © 2019. Balogh Tamas. All rights reserved.
 //
 
@@ -11,11 +11,11 @@ import SwiftyJSON
 
 class GameType9Controller: UIViewController {
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var lowerView: UIView!
-    
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     private var controller = UIViewController()
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var lowerView: UIView!
     
     let lowerFlexView = UIView()
     
@@ -51,9 +51,6 @@ class GameType9Controller: UIViewController {
         shuffledAnswers.forEach ({
             let button = CustomButton()
             button.setTitle($0, for: .normal)
-            if($0 == answer){
-                button.tag = 999
-            }
             button.backgroundColor = Colors.colorButton
             button.setTitleColor(.white, for: .normal)
             button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
@@ -79,8 +76,8 @@ class GameType9Controller: UIViewController {
             
             for view in lowerFlexView.subviews {
                 let button = view as! UIButton
-                if(button.tag == 999){
-                    sender.backgroundColor = UIColor.green
+                if((button.titleLabel?.text!.isEqual(answer))!){
+                    button.backgroundColor = UIColor.green
                 }
             }
             

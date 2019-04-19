@@ -50,6 +50,8 @@ class GameType10Controller: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(homeButtonPressed))
         navigationController!.navigationBar.tintColor = Colors.colorButton
         
+        chooseButton.setTitle("correct".localizableString(lang: Utils.getLanguage()), for: .normal)
+        
         if(titlesDefault.count == imagesDefault.count && titlesDefault.count == descriptionsDefault.count){
             for i in 0..<titlesDefault.count{
                 let object = GameType10Object(title: titlesDefault[i],image: imagesDefault[i],description: descriptionsDefault[i])
@@ -98,7 +100,6 @@ class GameType10Controller: UIViewController {
         }
         
         titleLabel.text = titles[titlePointer]
-        print("title: \(titlePointer)")
     }
     
     @objc func imageViewPressed(sender:UITapGestureRecognizer) {
@@ -109,8 +110,6 @@ class GameType10Controller: UIViewController {
         
         let imageData = Data(base64Encoded: images[imagePointer], options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!
         imageView.image = UIImage(data: imageData)
-        
-        print("image: \(imagePointer)")
     }
     
     @objc func descriptionLabelPressed(sender:UITapGestureRecognizer) {
@@ -120,12 +119,9 @@ class GameType10Controller: UIViewController {
         }
         
         descriptionLabel.text = descriptions[descriptionPointer]
-        print("description: \(descriptionPointer)")
     }
     
     @IBAction func chooseButtonPressed(_ sender: UIButton) {
-        print("title: \(titlePointer), image: \(imagePointer), description: \(descriptionPointer) ")
-        
         buttonClickCounter += 1
         
         if(buttonClickCounter > 2){
@@ -137,7 +133,7 @@ class GameType10Controller: UIViewController {
                 Result.singleton.addWrongPoint(point: 1)
             }
             
-            chooseButton.setTitle("Check Result", for: .normal)
+            chooseButton.setTitle("checkresult".localizableString(lang: Utils.getLanguage()), for: .normal)
             titleLabel.isUserInteractionEnabled = false
             imageView.isUserInteractionEnabled = false
             descriptionLabel.isUserInteractionEnabled = false
@@ -158,6 +154,9 @@ class GameType10Controller: UIViewController {
             } else {
                 titleLabel.backgroundColor = UIColor.red
             }
+            
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "next"), style: .plain, target: self, action: #selector(nextButtonPressed))
+            navigationController!.navigationBar.tintColor = Colors.colorButton
         } else {
             if(titlePointer == imagePointer && titlePointer == descriptionPointer){
                 answersCreated[titlePointer]=true;
@@ -207,9 +206,6 @@ class GameType10Controller: UIViewController {
         } else {
             titleLabel.backgroundColor = UIColor.red
         }
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "next"), style: .plain, target: self, action: #selector(nextButtonPressed))
-        navigationController!.navigationBar.tintColor = Colors.colorButton
     }
     
     @objc func nextButtonPressed() {

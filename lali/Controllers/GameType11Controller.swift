@@ -14,9 +14,20 @@ class GameType11Controller: UIViewController {
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     private var controller = UIViewController()
     
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var choosePictureButton: UIButton!
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var sentencesLabel: UILabel!
+    
+    
     var globalGames: Array<JSON> = [JSON()]
-    var images: [String] = []
     var sentences: [String] = []
+    var images: [String] = []
+    
+    private var imagePointer = Int.random(in: 0 ... 2)
+    private var sentenceCounter = 0
+    private var sentence = ""
+    private var answered = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +43,59 @@ class GameType11Controller: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(homeButtonPressed))
         navigationController!.navigationBar.tintColor = Colors.colorButton
         
-        /*//Decode base64 string and set the image
-         let imageData = Data(base64Encoded: image, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!
-         imageView.image = UIImage(data: imageData)*/
+        choosePictureButton.setTitle("choosepicture".localizableString(lang: Utils.getLanguage()), for: .normal)
+        helpButton.setTitle("help".localizableString(lang: Utils.getLanguage()), for: .normal)
+        
+        let imageData = Data(base64Encoded: images[imagePointer], options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!
+        imageView.image = UIImage(data: imageData)
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageViewPressed)))
+        
+        sentence = sentences[sentenceCounter]
+        sentencesLabel.text = sentence
         
     }
     
+    @objc func imageViewPressed(sender:UITapGestureRecognizer) {
+        imagePointer = getNext(imagePointer);
+        let imageData = Data(base64Encoded: images[imagePointer], options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!
+        imageView.image = UIImage(data: imageData)
+        if(answered){
+            if(imagePointer == 0){
+                choosePictureButton.backgroundColor = UIColor.green
+            } else {
+                choosePictureButton.backgroundColor = UIColor.red
+            }
+        }
+    }
+    
+    @IBAction func choosePictureButtonPressed(_ sender: UIButton) {
+        answered = true
+        choosePictureButton.removeTarget(self, action: #selector(choosePictureButtonPressed), for: .touchUpInside)
+        choosePictureButton.isEnabled = false
+        
+        if(imagePointer == 0){
+            Result.singleton.addCorrectPoint(point: 1)
+            choosePictureButton.backgroundColor = UIColor.green
+        } else {
+            Result.singleton.addWrongPoint(point: 1)
+            choosePictureButton.backgroundColor = UIColor.red
+        }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "next"), style: .plain, target: self, action: #selector(nextButtonPressed))
+        navigationController!.navigationBar.tintColor = Colors.colorButton
+    }
+    
+    @IBAction func helpButtonPressed(_ sender: UIButton) {
+        sentenceCounter += 1
+        sentence.append("\n\(sentences[sentenceCounter])")
+        sentencesLabel.text = sentence
+        if(sentenceCounter == (sentences.count - 1)){
+            helpButton.removeTarget(self, action: #selector(helpButtonPressed), for: .touchUpInside)
+            helpButton.backgroundColor = UIColor.gray
+            helpButton.isEnabled = false
+        }
+    }
     
     @objc func nextButtonPressed() {
         var tmp = globalGames
@@ -65,4 +123,18 @@ class GameType11Controller: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    private func getNext(_ pointer: Int) -> Int{
+        var p = 0
+        switch pointer {
+        case 0:
+            p = 1
+        case 1:
+            p = 2
+        case 2:
+            p = 0
+        default:
+            p = 0
+        }
+        return p
+    }
 }

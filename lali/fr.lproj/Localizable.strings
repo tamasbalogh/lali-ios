@@ -23,6 +23,14 @@
 //RegularController
 "start"="Commencer";
 
+//Gametype10
+"correct"="Réponse correcte";
+"checkresult"="Check Result";
+
+//Gametype11
+"choosepicture"="Choisir une image";
+"help"="Aide";
+
 //Gametypes
 "gametype1"="Assemblez les mots de la liste de gauche et les définitions à droite. Vous pouvez recommencer la partie en appuyant sur le bouton en haut à droite. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite.";
 "gametype2"="Choisissez les mots correspondant aux numéros sur l'image. Vous pouvez recommencer la partie en appuyant sur le bouton en haut à droite. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite. ";

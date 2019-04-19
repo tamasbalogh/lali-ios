@@ -16,8 +16,8 @@
 		C441E235222BF2FA00988928 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C441E234222BF2FA00988928 /* Utils.swift */; };
 		C46D427C22136806002734C9 /* LanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D427B22136806002734C9 /* LanguageController.swift */; };
 		C4885865224AE1660075EE48 /* GameType7Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885864224AE1660075EE48 /* GameType7Controller.swift */; };
-		C4885867224AE8990075EE48 /* GameType9Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885866224AE8990075EE48 /* GameType9Controller.swift */; };
 		C48F34F3221E1FDD00DF8328 /* GameType5Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48F34F2221E1FDD00DF8328 /* GameType5Controller.swift */; };
+		C4A3A64E226A700600CD8DB2 /* GameType9Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A3A64D226A700600CD8DB2 /* GameType9Controller.swift */; };
 		C4CF01752242CEBA0072BA2D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CF01742242CEBA0072BA2D /* CustomButton.swift */; };
 		C4CF01772242E2C30072BA2D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CF01762242E2C30072BA2D /* Colors.swift */; };
 		C4CF01792242F4550072BA2D /* GameType6Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CF01782242F4550072BA2D /* GameType6Controller.swift */; };
@@ -49,8 +49,8 @@
 		C441E234222BF2FA00988928 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C46D427B22136806002734C9 /* LanguageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageController.swift; sourceTree = "<group>"; };
 		C4885864224AE1660075EE48 /* GameType7Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameType7Controller.swift; sourceTree = "<group>"; };
-		C4885866224AE8990075EE48 /* GameType9Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameType9Controller.swift; sourceTree = "<group>"; };
 		C48F34F2221E1FDD00DF8328 /* GameType5Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameType5Controller.swift; sourceTree = "<group>"; };
+		C4A3A64D226A700600CD8DB2 /* GameType9Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameType9Controller.swift; sourceTree = "<group>"; };
 		C4CF01742242CEBA0072BA2D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		C4CF01762242E2C30072BA2D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C4CF01782242F4550072BA2D /* GameType6Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameType6Controller.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 				C4CF01782242F4550072BA2D /* GameType6Controller.swift */,
 				C4885864224AE1660075EE48 /* GameType7Controller.swift */,
 				C4CF017A2244321D0072BA2D /* GameType8Controller.swift */,
-				C4885866224AE8990075EE48 /* GameType9Controller.swift */,
+				C4A3A64D226A700600CD8DB2 /* GameType9Controller.swift */,
 				C41B8C8D225A9CA50075BE09 /* GameType10Controller.swift */,
 				C41B8C8F225A9D410075BE09 /* GameType11Controller.swift */,
 				C425C0F1224039BA00AFB76E /* ResultController.swift */,
@@ -156,7 +156,6 @@
 				15A21475575430B635BAA18B /* Pods-lali.debug.xcconfig */,
 				D586BD4FE0EC79A712CF2F6F /* Pods-lali.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -304,13 +303,13 @@
 				C441E235222BF2FA00988928 /* Utils.swift in Sources */,
 				C41B8C92225AA6BC0075BE09 /* CustomLabel.swift in Sources */,
 				C4885865224AE1660075EE48 /* GameType7Controller.swift in Sources */,
+				C4A3A64E226A700600CD8DB2 /* GameType9Controller.swift in Sources */,
 				C48F34F3221E1FDD00DF8328 /* GameType5Controller.swift in Sources */,
 				C41B8C8E225A9CA50075BE09 /* GameType10Controller.swift in Sources */,
 				C4EFC068220F8B8400EED946 /* RegularGameController.swift in Sources */,
 				C4CF01752242CEBA0072BA2D /* CustomButton.swift in Sources */,
 				C4E6431C222C465D0009448A /* Result.swift in Sources */,
 				C4CF017B2244321D0072BA2D /* GameType8Controller.swift in Sources */,
-				C4885867224AE8990075EE48 /* GameType9Controller.swift in Sources */,
 				C4F27CC6220A003800754C1C /* AppDelegate.swift in Sources */,
 				C4211E40224792CE006C03F6 /* GameType4Controller.swift in Sources */,
 			);

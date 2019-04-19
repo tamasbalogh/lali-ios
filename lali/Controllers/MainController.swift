@@ -27,6 +27,8 @@ class MainController: UIViewController {
         controller = self
         navigationItem.setHidesBackButton(true, animated:true);
         Result.singleton.reInit()
+        Utils.LEVEL = 0
+        Utils.PHENOMENA = 0
         
         language.title = "language".localizableString(lang: Utils.getLanguage())
         mixedGame.setTitle("mixedGame".localizableString(lang: Utils.getLanguage()), for: .normal)
@@ -36,9 +38,13 @@ class MainController: UIViewController {
     @IBAction func mixedGame(_ sender: UIButton) {
         Alamofire.request("http://imhotep.nyme.hu:9443/ArtApp/mix", method: .post, parameters: ["auth": "yTd0Eq6YzDDVQZBL","language": Utils.getLanguage()]).responseJSON { response in
             response.result.ifSuccess {
-                print("Downloading games was SUCCESSFUL!")
+                
                 let games = JSON(response.result.value!)
                 let list: Array<JSON> = games["games"].arrayValue
+                
+                print("Downloading games was SUCCESSFUL! count: \(list.count)")
+                
+                Utils.GAMETYPE = Utils.MIXED
                 Utils.showGame(games: list, viewController:  self)
             }
             

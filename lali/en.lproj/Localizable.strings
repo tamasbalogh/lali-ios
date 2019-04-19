@@ -29,6 +29,14 @@
 "correctanswers"="Correct Answers";
 "wronganswers"="Wrong Answers";
 
+//Gametype10
+"correct"="Correct";
+"checkresult"="Check Result";
+
+//Gametype11
+"choosepicture"="Choose Picture";
+"help"="Help";
+
 //Gametypes
 "gametype1"="Pair the left-side words with the right-side definitions! You can reset this game with the button at right upper corner. After you finished, the next game can be started with the arrow at right upper corner.";
 "gametype2"="Choose the right words based on the numbers on the picture! You can reset this game with the button at right upper corner. After you finished, the next game can be started with the arrow at right upper corner.";

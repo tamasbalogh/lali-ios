@@ -55,16 +55,14 @@ class GameType2Controller: UIViewController, UITableViewDelegate, UITableViewDat
         
         //Save the correct answers
         for (index, answer) in answersDefault.enumerated(){
-            let key = index + 1
-            answersDictionary.updateValue(answer, forKey: String(key))
+            answersDictionary.updateValue(answer, forKey: String(index + 1))
         }
         
         //Suffle arrays
         answers = Utils.shuffleArray(array: answersDefault)
         
         for i in 0..<answers.count {
-            let key = i + 1
-            numbers.append(String(key))
+            numbers.append(String(i+1))
         }
         numberTableView.dataSource = self
         numberTableView.delegate = self
@@ -103,6 +101,7 @@ class GameType2Controller: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
         if(tableView == numberTableView){
             isNumberSelected = true
             selectedNumberRow = indexPath.row
@@ -136,7 +135,8 @@ class GameType2Controller: UIViewController, UITableViewDelegate, UITableViewDat
     
     private func checkAnswers(){
         var coloredAnswers = Dictionary<String, UIColor>()
-        for key in createdDictionary.keys.sorted() {
+        for i in 1...answersDefault.count {
+            let key = String(i)
             numbers.append(key)
             answers.append(answersDictionary[key]!)
             if(createdDictionary[key] == answersDictionary[key]){
@@ -151,14 +151,12 @@ class GameType2Controller: UIViewController, UITableViewDelegate, UITableViewDat
         numberTableView.reloadData()
         answerTableView.reloadData()
         
-        for i in 0..<numbers.count{
-            let key = numbers[i]
-            let numberCell = numberTableView.cellForRow(at: IndexPath(row: i, section: 0)) as! UITableViewCell
-            let answerCell = answerTableView.cellForRow(at: IndexPath(row: i, section: 0)) as! UITableViewCell
-            numberCell.backgroundColor = coloredAnswers[key]
-            answerCell.backgroundColor = coloredAnswers[key]
+        for i in 0..<numbers.count-1{
+            let numberCell:UITableViewCell = numberTableView!.cellForRow(at: IndexPath(row: i, section: 0))!
+            let answerCell:UITableViewCell = answerTableView!.cellForRow(at: IndexPath(row: i, section: 0))!
+            numberCell.backgroundColor = coloredAnswers[String(i+1)]
+            answerCell.backgroundColor = coloredAnswers[String(i+1)]
         }
-        
         
         numberTableView.delegate = nil
         numberTableView.allowsSelection = false

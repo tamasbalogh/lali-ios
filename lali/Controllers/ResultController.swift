@@ -8,6 +8,8 @@
 
 import UIKit
 import Charts
+import Alamofire
+import SwiftyJSON
 
 class ResultController: UIViewController {
     
@@ -34,7 +36,13 @@ class ResultController: UIViewController {
     private func setUp(){
         controller = self
         navigationItem.setHidesBackButton(true, animated:true);
+        
         customizeChart()
+        
+        correctAnswersLabel.layer.masksToBounds = true
+        correctAnswersLabel.layer.cornerRadius = 10
+        wrongAsnwersLabel.layer.masksToBounds = true
+        wrongAsnwersLabel.layer.cornerRadius = 10
         
         correctAnswersLabel.text = "correctanswers".localizableString(lang: Utils.getLanguage()) + " - \(Result.singleton.getCorrect())"
         wrongAsnwersLabel.text = "wronganswers".localizableString(lang: Utils.getLanguage()) + " - \(Result.singleton.getWrong())"
@@ -54,7 +62,8 @@ class ResultController: UIViewController {
         pieChart.drawEntryLabelsEnabled = false
         pieChart.legend.enabled = false
         pieChart.drawCenterTextEnabled = true
-        let myAttribute = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 32) ]
+        
+        let myAttribute = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18) ]
         let centerText = NSAttributedString(string: "\(calculatePercentage()) %", attributes: myAttribute)
         pieChart.centerAttributedText = centerText
     }
@@ -65,7 +74,27 @@ class ResultController: UIViewController {
     }
     
     @IBAction func newGameButtonPressed(_ sender: UIButton) {
+        Result.singleton.reInit()
+        if(Utils.GAMETYPE == Utils.MIXED){
+            Alamofire.request("http://imhotep.nyme.hu:9443/ArtApp/mix", method: .post, parameters: ["auth": "yTd0Eq6YzDDVQZBL","language": Utils.getLanguage()]).responseJSON { response in
+                response.result.ifSuccess {
+                    print("Downloading games was SUCCESSFUL!")
+                    let games = JSON(response.result.value!)
+                    let list: Array<JSON> = games["games"].arrayValue
+                    Utils.GAMETYPE = Utils.MIXED
+                    Utils.showGame(games: list, viewController:  self)
+                }
+                
+                response.result.ifFailure {
+                    print("Downloading game was FAILED!")
+                }
+            }
+        }
         
+        if(Utils.GAMETYPE == Utils.REGULAR){
+            let regular = storyBoard.instantiateViewController(withIdentifier: "regular") as! RegularGameController
+            controller.navigationController?.pushViewController(regular, animated: true)
+        }
     }
     
     
