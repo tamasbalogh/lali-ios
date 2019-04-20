@@ -48,21 +48,23 @@ class GameType9Controller: UIViewController {
         //Shuffle answers
         let shuffledAnswers = Utils.shuffleArray(array: answers)
         
+        
+        lowerView.addSubview(lowerFlexView)
+        lowerFlexView.flex.direction(.row).justifyContent(.start).alignItems(.center).alignContent(.start).wrap(.wrap).margin(10)
+        
         shuffledAnswers.forEach ({
             let button = CustomButton()
             button.setTitle($0, for: .normal)
             button.backgroundColor = Colors.colorButton
             button.setTitleColor(.white, for: .normal)
             button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-            lowerFlexView.flex.direction(.row).justifyContent(.start).alignItems(.center).alignContent(.center).wrap(.wrap).margin(10).define{ (flex) in
-                flex.addItem(button).padding(5).margin(10)
-            }
+            lowerFlexView.flex.addItem(button).padding(5).margin(10)
         })
         
-        lowerView.addSubview(lowerFlexView)
         
         lowerFlexView.pin.top().bottom().left().right()
-        lowerFlexView.flex.layout(mode: .fitContainer)
+        lowerFlexView.flex.layout()
+        
     }
     
     @objc func buttonPressed(sender : UIButton){

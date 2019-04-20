@@ -34,6 +34,9 @@ class GameType2Controller: UIViewController, UITableViewDelegate, UITableViewDat
     var answersDictionary = Dictionary<String, String>()
     var createdDictionary = Dictionary<String, String>()
     
+    var answered = false
+    var coloredAnswers = Dictionary<String, UIColor>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
@@ -86,14 +89,17 @@ class GameType2Controller: UIViewController, UITableViewDelegate, UITableViewDat
         var cell:UITableViewCell?
         if tableView == self.numberTableView {
             cell = tableView.dequeueReusableCell(withIdentifier: "numberCell", for: indexPath)
-            let number = numbers[indexPath.row]
-            cell!.textLabel!.text = String(number)
+            cell!.textLabel!.text = String(numbers[indexPath.row])
         }
         if tableView == self.answerTableView {
             cell = tableView.dequeueReusableCell(withIdentifier: "answerCell", for: indexPath)
-            let answer = answers[indexPath.row]
-            cell!.textLabel!.text = answer
+            cell!.textLabel!.text = answers[indexPath.row]
         }
+        
+        if(answered){
+            cell!.backgroundColor = coloredAnswers[String(indexPath.row+1)]
+        }
+        
         cell!.textLabel!.font = .boldSystemFont(ofSize: 14)
         cell!.textLabel!.lineBreakMode = .byWordWrapping
         cell!.textLabel!.numberOfLines = 0
@@ -101,7 +107,6 @@ class GameType2Controller: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
         if(tableView == numberTableView){
             isNumberSelected = true
             selectedNumberRow = indexPath.row
@@ -134,7 +139,9 @@ class GameType2Controller: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     private func checkAnswers(){
-        var coloredAnswers = Dictionary<String, UIColor>()
+        
+        answered = true
+
         for i in 1...answersDefault.count {
             let key = String(i)
             numbers.append(key)
@@ -150,13 +157,6 @@ class GameType2Controller: UIViewController, UITableViewDelegate, UITableViewDat
         
         numberTableView.reloadData()
         answerTableView.reloadData()
-        
-        for i in 0..<numbers.count-1{
-            let numberCell:UITableViewCell = numberTableView!.cellForRow(at: IndexPath(row: i, section: 0))!
-            let answerCell:UITableViewCell = answerTableView!.cellForRow(at: IndexPath(row: i, section: 0))!
-            numberCell.backgroundColor = coloredAnswers[String(i+1)]
-            answerCell.backgroundColor = coloredAnswers[String(i+1)]
-        }
         
         numberTableView.delegate = nil
         numberTableView.allowsSelection = false

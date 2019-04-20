@@ -37,6 +37,12 @@
 "choosepicture"="Choose Picture";
 "help"="Help";
 
+//Alerts
+"empty_regular_game"="Your selected language does not contain any games.";
+"empty_custom_game"="The selected language, lesson and level do not contain any games.";
+"network"="The Network is not available. Please check your network settings.";
+"server"="The server is not available. Please try again later.";
+
 //Gametypes
 "gametype1"="Pair the left-side words with the right-side definitions! You can reset this game with the button at right upper corner. After you finished, the next game can be started with the arrow at right upper corner.";
 "gametype2"="Choose the right words based on the numbers on the picture! You can reset this game with the button at right upper corner. After you finished, the next game can be started with the arrow at right upper corner.";

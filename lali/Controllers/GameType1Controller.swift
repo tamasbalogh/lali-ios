@@ -11,7 +11,6 @@ import SwiftyJSON
 
 class GameType1Controller: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
 
     @IBOutlet weak var colorTableView: UITableView!
     @IBOutlet weak var definitionTableView: UITableView!
@@ -34,6 +33,9 @@ class GameType1Controller: UIViewController, UITableViewDelegate, UITableViewDat
     
     var answersDictionary = Dictionary<String, String>()
     var createdDictionary = Dictionary<String, String>()
+    
+    var coloredAnswers = Dictionary<String, UIColor>()
+    var answered = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +96,11 @@ class GameType1Controller: UIViewController, UITableViewDelegate, UITableViewDat
             let definition = definitions[indexPath.row]
             cell!.textLabel!.text = definition
         }
+        
+        if(answered){
+            cell!.backgroundColor = coloredAnswers[colors[indexPath.row]]
+        }
+        
         cell!.textLabel!.font = .boldSystemFont(ofSize: 14)
         cell!.textLabel!.lineBreakMode = .byWordWrapping
         cell!.textLabel!.numberOfLines = 0
@@ -134,7 +141,8 @@ class GameType1Controller: UIViewController, UITableViewDelegate, UITableViewDat
     
     private func checkAnswers(){
         
-        var coloredAnswers = Dictionary<String, UIColor>()
+        answered = true
+        
         for key in createdDictionary.keys {
             colors.append(key)
             definitions.append(answersDictionary[key]!)
@@ -149,15 +157,6 @@ class GameType1Controller: UIViewController, UITableViewDelegate, UITableViewDat
         
         colorTableView.reloadData()
         definitionTableView.reloadData()
-        
-        for i in 0..<colors.count{
-            let key = colors[i]
-            let colorCell:UITableViewCell = colorTableView!.cellForRow(at: IndexPath(row: i, section: 0))!
-            let definitionCell:UITableViewCell = definitionTableView.cellForRow(at: IndexPath(row: i, section: 0))!
-            colorCell.backgroundColor = coloredAnswers[key]
-            definitionCell.backgroundColor = coloredAnswers[key]
-        }
-        
         
         colorTableView.delegate = nil
         colorTableView.allowsSelection = false

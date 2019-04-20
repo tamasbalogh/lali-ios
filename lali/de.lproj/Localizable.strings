@@ -31,6 +31,12 @@
 "choosepicture"="Wählen Sie ein Bild";
 "help"="Hilfe";
 
+//Alerts
+"empty_regular_game"="Die ausgewählte Sprache enthält keine Spiele.";
+"empty_custom_game"="Ausgewählte Sprache, Lektion und Niveau enthalten keine Spiele.";
+"network"="Das Netzwerk ist nicht verfügbar. Bitte überprüfen Sie die Netzwerkeinstellungen.";
+"server"="Der Server ist nicht verfügbar. Bitte versuchen Sie es später noch einmal.";
+
 //Gametypes
 "gametype1"="Verbinden sie die Wörter der linken Seite mit den Beschreibungen der rechten Seite! Sie können das Spiel mit der Taste in der rechten oberen Ecke neu starten. Wenn sie fertig sind, können sie mit der Pfeiltaste in der rechten oberen Ecke das nächste Spiel beginnen.";
 "gametype2"="Wählen sie das Wort aus, das zu den Nummern auf dem Bild passt! Sie können das Spiel mit der Taste in der rechten oberen Ecke neu starten. Wenn sie fertig sind, können sie mit der Pfeiltaste in der rechten oberen Ecke das nächste Spiel beginnen.";

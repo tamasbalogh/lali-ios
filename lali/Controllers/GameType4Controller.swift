@@ -59,7 +59,7 @@ class GameType4Controller: UIViewController {
             button.backgroundColor = Colors.colorButton
             button.setTitleColor(.white, for: .normal)
             button.addTarget(self, action: #selector(add), for: .touchUpInside)
-            upperFlexView.flex.direction(.row).justifyContent(.start).alignItems(.center).alignContent(.center).wrap(.wrap).margin(10).define{ (flex) in
+            upperFlexView.flex.direction(.row).justifyContent(.start).alignItems(.center).alignContent(.center).wrap(.wrap).define{ (flex) in
                 flex.addItem(button).padding(5).margin(10)
             }
         })
@@ -84,7 +84,7 @@ class GameType4Controller: UIViewController {
         lowerAnswers.append(title!)
         sender.removeTarget(self, action: #selector(add), for: .touchUpInside)
         sender.addTarget(self, action: #selector(remove), for: .touchUpInside)
-        lowerFlexView.flex.direction(.row).justifyContent(.start).alignItems(.center).alignContent(.center).wrap(.wrap).margin(10).define{ (flex) in
+        lowerFlexView.flex.direction(.row).justifyContent(.start).alignItems(.center).alignContent(.center).wrap(.wrap).define{ (flex) in
             flex.addItem(sender).padding(5).margin(10)
         }
         
@@ -112,7 +112,7 @@ class GameType4Controller: UIViewController {
         upperAnswers.append(title!)
         sender.removeTarget(self, action: #selector(remove(sender:)), for: .touchUpInside)
         sender.addTarget(self, action: #selector(add), for: .touchUpInside)
-        upperFlexView.flex.direction(.row).justifyContent(.start).alignItems(.center).alignContent(.center).wrap(.wrap).margin(10).define{ (flex) in
+        upperFlexView.flex.direction(.row).justifyContent(.start).alignItems(.center).alignContent(.center).wrap(.wrap).define{ (flex) in
             flex.addItem(sender).padding(5).margin(10)
         }
         
@@ -129,7 +129,7 @@ class GameType4Controller: UIViewController {
             button.backgroundColor = Colors.colorButton
             button.setTitleColor(.white, for: .normal)
             
-            upperFlexView.flex.direction(.row).justifyContent(.start).alignItems(.center).alignContent(.center).wrap(.wrap).margin(10).define{ (flex) in
+            upperFlexView.flex.direction(.row).justifyContent(.start).alignItems(.center).alignContent(.center).wrap(.wrap).define{ (flex) in
                 flex.addItem(button).padding(5).margin(10)
             }
             
@@ -156,7 +156,7 @@ class GameType4Controller: UIViewController {
             }
             button.setTitleColor(.white, for: .normal)
             
-            lowerFlexView.flex.direction(.row).justifyContent(.start).alignItems(.center).alignContent(.center).wrap(.wrap).margin(10).define{ (flex) in
+            lowerFlexView.flex.direction(.row).justifyContent(.start).alignItems(.center).alignContent(.center).wrap(.wrap).define{ (flex) in
                 flex.addItem(button).padding(5).margin(10)
             }
             

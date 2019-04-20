@@ -31,6 +31,12 @@
 "choosepicture"="Choisir une image";
 "help"="Aide";
 
+//Alerts
+"empty_regular_game"="La langue que vous avez sélectionnée ne contient aucun jeu.";
+"empty_custom_game"="Les langue, leçon et niveaux sélectionnés ne correspondent à aucune session.";
+"network"="Réseau indisponible. Vérifiez les paramètres du réseau.";
+"server"="Le réseau est indisponible. Réessayez plus tard.";
+
 //Gametypes
 "gametype1"="Assemblez les mots de la liste de gauche et les définitions à droite. Vous pouvez recommencer la partie en appuyant sur le bouton en haut à droite. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite.";
 "gametype2"="Choisissez les mots correspondant aux numéros sur l'image. Vous pouvez recommencer la partie en appuyant sur le bouton en haut à droite. Quand vous avez fini, vous pouvez commencer la partie suivante en appuyant sur la flèche en haut à droite. ";

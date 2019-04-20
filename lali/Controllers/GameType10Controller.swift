@@ -20,6 +20,7 @@ class GameType10Controller: UIViewController {
     @IBOutlet weak var chooseButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    
     var globalGames: Array<JSON> = [JSON()]
     var titlesDefault: [String] = [""]
     var imagesDefault: [String] = [""]

@@ -16,19 +16,17 @@ class RegularGameController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var levelPickerView: UIPickerView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     private var controller = UIViewController()
     
+    
     var phenomenas:[String] = []
     var levels:[String] = []
-    var phenomena = ""
-    var level = ""
     var phenomenaRow = 1
     var levelRow = 1
-    
-    var selectedPhenomena = Utils.PHENOMENA
-    var selectedLevel = Utils.LEVEL
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,15 +69,17 @@ class RegularGameController: UIViewController, UIPickerViewDelegate, UIPickerVie
         levelPickerView.delegate = self
         levelPickerView.dataSource = self
         
+        if (Utils.GAMETYPE == Utils.REGULAR){
+            phenomenaPickerView.selectRow(Utils.PHENOMENA, inComponent: 0, animated: false)
+            levelPickerView.selectRow(Utils.LEVEL, inComponent: 0, animated: false)
+            phenomenaRow = Utils.PHENOMENA + 1
+            levelRow = Utils.LEVEL + 1
+        } else {
+            Utils.PHENOMENA = 0
+            Utils.LEVEL = 0
+        }
         
-        phenomenaPickerView.selectRow(selectedPhenomena, inComponent: 0, animated: false)
-        levelPickerView.selectRow(selectedLevel, inComponent: 0, animated: false)
-        
-        phenomena = phenomenas[selectedPhenomena]
-        level = levels[selectedLevel]
     }
-    
-    
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -101,12 +101,10 @@ class RegularGameController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if(pickerView.isEqual(phenomenaPickerView)){
-            phenomena = phenomenas[row]
             phenomenaRow = row + 1
             Utils.PHENOMENA = row
         }
         if(pickerView.isEqual(levelPickerView)){
-            level = levels[row]
             levelRow = row + 1
             Utils.LEVEL = row
         }
@@ -120,17 +118,34 @@ class RegularGameController: UIViewController, UIPickerViewDelegate, UIPickerVie
             "level": levelRow
         ]
         
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         Alamofire.request("http://imhotep.nyme.hu:9443/ArtApp/regular", method: .post, parameters: params).responseJSON { response in
             response.result.ifSuccess {
-                print("Downloading games was SUCCESSFUL!")
                 let games = JSON(response.result.value!)
                 let list: Array<JSON> = games["games"].arrayValue
-                Utils.GAMETYPE = Utils.REGULAR
-                Utils.showGame(games: list, viewController:  self)
+                
+                self.activityIndicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
+                
+                if(list.count > 0){
+                    Utils.GAMETYPE = Utils.REGULAR
+                    Utils.showGame(games: list, viewController:  self)
+                } else {
+                    let alert = UIAlertController(title: "", message: "empty_custom_game".localizableString(lang: Utils.getLanguage()), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
             
             response.result.ifFailure {
-                print("Downloading game was FAILED!")
+                self.activityIndicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
+                
+                let alert = UIAlertController(title: "", message: "server".localizableString(lang: Utils.getLanguage()), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }

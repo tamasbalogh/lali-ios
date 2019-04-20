@@ -31,6 +31,12 @@
 "choosepicture"="Valitse kuva";
 "help"="Ohjeet";
 
+//Alerts
+"empty_regular_game"="Valitulla kielellä ei löydy yhtään peliä.";
+"empty_custom_game"="Valitut kieli, oppitunti ja taso eivät sisällä yhtään peliä.";
+"network"="Verkkoon ei saada yhteyttä. Tarkista verkkoasetukset.";
+"server"="Palvelimeen ei saada yhteyttä. Yritä myöhemmin uudelleen.";
+
 //Gametypes
 "gametype1"="Yhdistä vasemmanpuoleiset sanat oikeanpuoleisiin määritelmiin. Voit aloittaa pelin uudelleen painamalla oikean ylänurkan näppäintä. Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";
 "gametype2"="Valitse oikeat sanat kuvan numeroiden perusteella. Voit aloittaa pelin uudelleen painamalla oikean ylänurkan näppäintä. Kun peli on päättynyt, voit aloittaa seuraavan pelin painamalla nuolta oikeassa ylänurkassa.";

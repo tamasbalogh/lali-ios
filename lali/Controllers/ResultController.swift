@@ -19,6 +19,7 @@ class ResultController: UIViewController {
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var correctAnswersLabel: UILabel!
     @IBOutlet weak var wrongAsnwersLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     
@@ -69,24 +70,40 @@ class ResultController: UIViewController {
     }
     
     @IBAction func homeButtonPressed(_ sender: UIButton) {
-        let main = storyBoard.instantiateViewController(withIdentifier: "main") as! MainController
-        controller.navigationController?.pushViewController(main, animated: true)
+        openHome()
     }
     
     @IBAction func newGameButtonPressed(_ sender: UIButton) {
         Result.singleton.reInit()
+        
+        self.activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         if(Utils.GAMETYPE == Utils.MIXED){
             Alamofire.request("http://imhotep.nyme.hu:9443/ArtApp/mix", method: .post, parameters: ["auth": "yTd0Eq6YzDDVQZBL","language": Utils.getLanguage()]).responseJSON { response in
                 response.result.ifSuccess {
-                    print("Downloading games was SUCCESSFUL!")
                     let games = JSON(response.result.value!)
                     let list: Array<JSON> = games["games"].arrayValue
-                    Utils.GAMETYPE = Utils.MIXED
-                    Utils.showGame(games: list, viewController:  self)
+                    
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    
+                    if(list.count > 0){
+                        Utils.GAMETYPE = Utils.MIXED
+                        Utils.showGame(games: list, viewController:  self)
+                    } else {
+                        let alert = UIAlertController(title: "", message: "empty_regular_game".localizableString(lang: Utils.getLanguage()), preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.openHome()}))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
-                
                 response.result.ifFailure {
-                    print("Downloading game was FAILED!")
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    
+                    let alert = UIAlertController(title: "", message: "server".localizableString(lang: Utils.getLanguage()), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.openHome()}))
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
@@ -95,6 +112,11 @@ class ResultController: UIViewController {
             let regular = storyBoard.instantiateViewController(withIdentifier: "regular") as! RegularGameController
             controller.navigationController?.pushViewController(regular, animated: true)
         }
+    }
+    
+    private func openHome(){
+        let main = storyBoard.instantiateViewController(withIdentifier: "main") as! MainController
+        controller.navigationController?.pushViewController(main, animated: true)
     }
     
     

@@ -11,23 +11,21 @@ import UIKit
 class LanguageController: UIViewController {
     
     @IBOutlet weak var selectYourLanguage: UILabel!
-    @IBOutlet weak var englishLabel: UILabel!
-    @IBOutlet weak var frenchLabel: UILabel!
-    @IBOutlet weak var germanLabel: UILabel!
-    @IBOutlet weak var finnishLabel: UILabel!
     @IBOutlet weak var chooseButton: UIButton!
+    @IBOutlet weak var centerView: UIView!
     
- 
-    @IBOutlet weak var englishSwith: UISwitch!
-    @IBOutlet weak var frenchSwith: UISwitch!
-    @IBOutlet weak var germanSwitch: UISwitch!
-    @IBOutlet weak var finnishSwitch: UISwitch!
+    let englishSwitch = UISwitch()
+    let frenchSwitch = UISwitch()
+    let germanSwitch = UISwitch()
+    let finnishSwitch = UISwitch()
     
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     private var controller = UIViewController()
     
     let userDefaults = UserDefaults.standard
     var language:String?
+    
+    let centerFlexView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,54 +36,91 @@ class LanguageController: UIViewController {
         navigationController!.navigationBar.tintColor = Colors.colorButton
         
         selectYourLanguage.text = "selectyourlanguage".localizableString(lang: Utils.getLanguage())
-        englishLabel.text = "english".localizableString(lang: Utils.getLanguage())
-        frenchLabel.text = "french".localizableString(lang: Utils.getLanguage())
-        germanLabel.text = "german".localizableString(lang: Utils.getLanguage())
-        finnishLabel.text = "finnish".localizableString(lang: Utils.getLanguage())
         chooseButton.setTitle("choose".localizableString(lang: Utils.getLanguage()), for: .normal)
         
         language = userDefaults.object(forKey: "language") as? String
         
+        centerFlexView.flex.define{ (flex) in
+            
+            flex.addItem().direction(.row).justifyContent(.center).define{ (flex) in
+                flex.addItem(englishSwitch).margin(10)
+                let engLabel = UILabel()
+                engLabel.text = "english".localizableString(lang: Utils.getLanguage())
+                flex.addItem(engLabel).margin(10)
+            }
+            
+            flex.addItem().direction(.row).justifyContent(.center).define{ (flex) in
+                flex.addItem(frenchSwitch).margin(10)
+                let engLabel = UILabel()
+                engLabel.text = "french".localizableString(lang: Utils.getLanguage())
+                flex.addItem(engLabel).margin(10)
+            }
+            
+            flex.addItem().direction(.row).justifyContent(.center).define{ (flex) in
+                flex.addItem(germanSwitch).margin(10)
+                let engLabel = UILabel()
+                engLabel.text = "german".localizableString(lang: Utils.getLanguage())
+                flex.addItem(engLabel).margin(10)
+            }
+            
+            flex.addItem().direction(.row).justifyContent(.center).define{ (flex) in
+                flex.addItem(finnishSwitch).margin(10)
+                let engLabel = UILabel()
+                engLabel.text = "finnish".localizableString(lang: Utils.getLanguage())
+                flex.addItem(engLabel).margin(10)
+            }
+        }
+        
+        centerView.addSubview(centerFlexView)
+        
+        centerFlexView.pin.all()
+        centerFlexView.flex.layout(mode: .fitContainer)
+        
         switch language {
         case Language.ENGLISH:
-            englishSwith.isOn = true
+            englishSwitch.isOn = true
         case Language.GERMAN:
             germanSwitch.isOn = true
         case Language.FRENCH:
-            frenchSwith.isOn = true
+            frenchSwitch.isOn = true
         case Language.FINNISH:
             finnishSwitch.isOn = true
         default:
             language = Language.ENGLISH
-            englishSwith.isOn = true
+            englishSwitch.isOn = true
         }
+        
+        englishSwitch.addTarget(self, action: #selector(englishAction(_:)), for: .valueChanged)
+        frenchSwitch.addTarget(self, action: #selector(frenchAction), for: .valueChanged)
+        germanSwitch.addTarget(self, action: #selector(germanAction), for: .valueChanged)
+        finnishSwitch.addTarget(self, action: #selector(finnishAction), for: .valueChanged)
     }
     
-    @IBAction func englishAction(_ sender: UISwitch) {
+    @objc func englishAction(_ sender: UISwitch) {
         if(sender.isOn){
-            frenchSwith.isOn = false
+            frenchSwitch.isOn = false
             germanSwitch.isOn = false
             finnishSwitch.isOn = false
         }
     }
-    @IBAction func frenchAction(_ sender: UISwitch) {
+    @objc func frenchAction(_ sender: UISwitch) {
         if(sender.isOn){
-            englishSwith.isOn = false
+            englishSwitch.isOn = false
             germanSwitch.isOn = false
             finnishSwitch.isOn = false
         }
     }
-    @IBAction func germanAction(_ sender: UISwitch) {
+    @objc func germanAction(_ sender: UISwitch) {
         if(sender.isOn){
-            englishSwith.isOn = false
-            frenchSwith.isOn = false
+            englishSwitch.isOn = false
+            frenchSwitch.isOn = false
             finnishSwitch.isOn = false
         }
     }
-    @IBAction func finnishAction(_ sender: UISwitch) {
+    @objc func finnishAction(_ sender: UISwitch) {
         if(sender.isOn){
-            englishSwith.isOn = false
-            frenchSwith.isOn = false
+            englishSwitch.isOn = false
+            frenchSwitch.isOn = false
             germanSwitch.isOn = false
         }
     }
@@ -96,10 +131,10 @@ class LanguageController: UIViewController {
     }
     
     @IBAction func choosePressed(_ sender: UIButton) {
-        if(englishSwith.isOn){
+        if(englishSwitch.isOn){
             language = Language.ENGLISH
         }
-        if(frenchSwith.isOn){
+        if(frenchSwitch.isOn){
             language = Language.FRENCH
         }
         if(germanSwitch.isOn){
